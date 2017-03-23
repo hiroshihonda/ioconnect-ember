@@ -1,0 +1,75 @@
+<div id="{{componentId}}" class="presentation-slider" style="background-image: url('{{backgroundUrl}}');">
+
+    <div class="slide-note slide-note-header">
+        <div class="presentation-slider-fullscreen">
+          {{#if isFullScreen}}
+              <span class="glyphicon glyphicon-remove clickable fullscreen-button pull-right" {{action 'exitFullScreen'}}></span>
+          {{else}}
+              <span class="glyphicon glyphicon-fullscreen clickable fullscreen-button pull-right" {{action 'goFullScreen'}}></span>
+          {{/if}}
+        </div>
+
+      {{#if (gt currentSlideIndex 0)}}
+          <div class="slide-note-body">
+              <div class="pull-left" style="margin-top: 15px">
+                {{proposal.proposalName}} | {{formatDate proposal.createdDate}}
+              </div>
+
+              <div class="pull-right">
+                  <img alt="Company Logo" style="height: 50px" src="{{files.logo.url}}"/>
+
+              </div>
+
+              <div class="clearfix"></div>
+          </div>
+      {{/if}}
+    </div>
+
+    <div class="presentation-body">
+        <div class="presentation-body-holder">
+          {{#if showArrows}}
+              <div class="presentation-arrow-wrapper left">
+                {{#if hasPrevSlide}}
+                    <div class="presentation-arrow">
+                        <span {{action 'setSlide' 'prev'}} class="glyphicon glyphicon-chevron-left"></span>
+                    </div>
+                {{/if}}
+              </div>
+          {{/if}}
+            <div class="presentation-content-wrapper">
+                <div class="presentation-content">
+                  {{partial currentSlide}}
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+          {{#if showArrows}}
+              <div class="presentation-arrow-wrapper">
+                {{#if hasNextSlide}}
+                    <div class="presentation-arrow">
+                        <span {{action 'setSlide' 'next'}} class="glyphicon glyphicon-chevron-right"></span>
+                    </div>
+                {{/if}}
+              </div>
+          {{/if}}
+        </div>
+    </div>
+
+
+  {{#if currentSlideFooter}}
+      <div class="presentation-footer">
+        {{partial currentSlideFooter}}
+          <div class="clearfix"></div>
+      </div>
+      <div class=""></div>
+  {{/if}}
+
+
+  {{#presentation-slider/helper-slide-footer pageNumber=currentSlideNumber}}
+    {{#if (gt currentSlideIndex 0)}}
+      {{currentSlideDisclaimer}}
+    {{else}}
+      {{proposal.proposalName}} | {{formatDate proposal.createdDate}}
+    {{/if}}
+  {{/presentation-slider/helper-slide-footer}}
+</div>
+

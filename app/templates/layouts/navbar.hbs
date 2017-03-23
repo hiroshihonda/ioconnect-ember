@@ -1,0 +1,55 @@
+
+<div id="sidebar-nav">
+        <div class="profile-hidder">
+        <ul class="nav">
+                    <li class="nav-profile">
+                        <div class="image">
+                            <a href="javascript:;"><img alt="" src="images/user_1.jpg"></a>
+                        </div>
+                        <div class="info">
+                            <a href="profile.html">Erwin Agpasa <b class="caret"></b></a>
+                            <small>UX-UI Designer</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        <ul id="dashboard-menu">
+            {{#if session.isAuthenticated}}
+              <li>
+                <a href="#" class="dropdown-toggle">              
+                    <i class="fa fa-table"></i>
+                    <span>Proposals</span> <b class="caret"></b>
+                </a>
+                 <ul class="submenu">
+                  {{#link-to 'get-started' tagName="li"}}
+                      <a {{bind-attr href="view.href"}}>New Proposal</a>
+                  {{/link-to}}
+                  {{#link-to 'proposal' tagName="li"}}
+                      <a {{bind-attr href="view.href"}}>Proposal lookup</a>
+                  {{/link-to}}
+                  {{#link-to 'done-deals' tagName="li"}}
+                    <a {{bind-attr href="view.href"}}>Done Deals</a>
+                  {{/link-to}}
+                  </ul>
+                </li>
+
+            {{/if}}
+
+          
+           
+        </ul>
+
+            <ul id="user-menu" class="nav" style="position:fixed; bottom:0; width:200px">
+              {{#if session.isAuthenticated}}
+                {{#link-to 'setup.products-pricing' tagName="li"}}
+                    <a {{bind-attr href="view.href"}}>Setup</a>
+                {{/link-to}}
+                  <li><a>{{session.secure.user.firstName}} {{session.secure.user.lastName}}</a></li>
+                  <li><a {{action "logout"}}>Logout</a></li>
+              {{else}}
+                  <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+              {{/if}}
+            </ul>
+</div>
+

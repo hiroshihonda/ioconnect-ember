@@ -1,0 +1,21 @@
+<table id="zoho-table" class="table table-striped table-bordered table-hover" width="100%">
+    <thead>
+    <tr>
+        <th >
+            <i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>
+            Potential Name
+        </th>
+        <th data-hide="phone">
+            Proposals count
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each potential in potentials}}
+        <tr>
+            <td>{{#link-to viewroute potential.id}}{{potential.potentialName}}{{/link-to}}</td>
+                <td>{{potential.proposalsLength }}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

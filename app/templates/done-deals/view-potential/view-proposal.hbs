@@ -1,0 +1,26 @@
+<div class="col-md-12">
+    <h4>Selected proposal: {{proposal.name}}</h4>
+
+    <div class="step-container">
+      {{proposal/preview-bar proposal=proposal settings=settings cloneProposal="cloneProposal" acceptProposal="acceptProposal"}}
+    </div>
+	
+	<h4>Attachments:</h4>
+	<div class="step-container">
+		<table class="table table-striped table-bordered table-hovered">
+		<thead>
+		<tr>
+		<th>Category</th><th>Upload</th><th>Download</th>
+		</tr>
+		</thead>
+		<tbody>
+		{{#each attachment in proposal.fileAttachments}}
+			<tr>
+			<td>{{ attachment.category }}</td><td>{{file-upload url="/api/files" model=attachment.file}}</td>
+			<td>{{#if attachment.fileAvailable}}<a href="{{attachment.fileUrl}}" target="_blank" class="btn btn-primary">Download</a>{{/if}}</td>
+			</tr>
+		{{/each}}
+		</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,43 @@
+<table id="zoho-table" class="table table-striped table-bordered table-hover" width="100%">
+    
+	<thead>
+    <tr>
+		<th class="no-sort"></th>
+        <th >
+            <i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>
+            Customer Name
+        </th>
+        <th data-hide="phone">
+            Address
+        </th>
+        <th>Source</th>
+        <th>Status</th>
+        <th>Utility</th>
+        <th data-hide="phone,tablet">
+            <i class="fa fa-fw txt-color-blue hidden-md hidden-sm hidden-xs"></i>
+            Rate Schedule
+        </th>
+        <th data-hide="phone,tablet">Average Bill</th>
+        <th data-hide="phone,tablet">Anual Usage</th>
+		<th data-hide="phone,tablet">Email Address</th>
+		<th data-hide="phone,tablet">Phone Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each potential in potentials}}
+        <tr>
+			<td>{{input type="checkbox" checked=potential.actionSelected}}</td>
+            <td>{{#link-to 'get-started.item.index' potential.id}}{{potential.potentialName}}{{/link-to}}</td>
+            <td>{{potential.address}}</td>
+            <td>{{potential.leadSource}}</td>
+            <td>{{potential.leadStatus}}</td>
+            <td>{{potential.utility}}</td>
+            <td>{{potential.rateSchedule}}</td>
+            <td>{{potential.averageBill}}</td>
+            <td>{{potential.annualUsage}}</td>
+			<td>{{potential.email}}</td>
+            <td>{{potential.phone}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

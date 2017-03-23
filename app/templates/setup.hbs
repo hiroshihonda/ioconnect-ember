@@ -1,0 +1,33 @@
+<br />
+<div class="col-md-3 col-xs-12">
+    <ul class="nav nav-pills nav-stacked">
+
+      {{#link-to "setup.products-pricing" tagName="li"}}
+          <a {{bind-attr href="view.href"}}>Products and Pricing</a>
+      {{/link-to}}
+
+      {{#link-to "setup.market-profile" tagName="li"}}
+          <a {{bind-attr href="view.href"}}>Market profile</a>
+      {{/link-to}}
+
+      {{#link-to "setup.pv-watts" tagName="li"}}
+          <a {{bind-attr href="view.href"}}>PV Watts</a>
+      {{/link-to}}
+
+      {{#link-to "setup.company-info" tagName="li"}}
+          <a {{bind-attr href="view.href"}}>Company Info</a>
+      {{/link-to}}
+
+      {{#link-to "setup.presentation" tagName="li"}}
+          <a {{bind-attr href="view.href"}}>Presentation</a>
+      {{/link-to}}
+
+      {{#link-to "setup.loan" tagName="li"}}
+          <a {{bind-attr href="view.href"}}>Loan Options</a>
+      {{/link-to}}
+    </ul>
+
+</div>
+<div class="col-md-9 col-xs-12">
+  {{outlet}}
+</div>

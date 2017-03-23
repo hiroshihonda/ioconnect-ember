@@ -1,0 +1,28 @@
+{{#if proposal.id}}
+    <a  class="btn btn-primary" href="{{pdfUrl}}" target="_blank">Generate PDF</a>
+{{else}}
+    <button class="btn btn-primary disabled">Generate PDF</button>
+{{/if}}
+
+<a data-toggle="modal" data-target=".view-presentation-modal" class="btn btn-primary">View Quote</a>
+
+{{#if showEdit}}
+	{{#link-to 'get-started.edit-proposal' proposal.id class="btn btn-primary"}}Edit{{/link-to}}
+{{/if}}
+
+<a href="#" {{action "cloneProposal" proposal.id}} class="btn btn-primary">Clone</a>
+
+{{#unless proposal.accepted}}
+<a href="#" {{action "acceptProposal" proposal.id}} class="btn btn-primary">Accept</a>
+{{/unless}}
+
+<div id="presentation-modal" class="modal modal-large fade view-presentation-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+              {{presentation-slider proposal=proposal settings=settings}}
+        </div>
+    </div>
+</div>
+
+{{outlet "modal"}}

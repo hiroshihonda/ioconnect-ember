@@ -1,0 +1,50 @@
+<!-- row -->
+    <article class="col-sm-12 sortable-grid ui-sortable">
+        <!-- new widget -->
+        <div class="jarviswidget jarviswidget-sortable" data-widget-togglebutton="false"
+             data-widget-editbutton="false" data-widget-fullscreenbutton="false" data-widget-colorbutton="false"
+             data-widget-deletebutton="false" role="widget">
+
+            <header role="heading">
+                <span class="widget-icon"> <i class="glyphicon glyphicon-stats txt-color-darken"></i> </span>
+
+                <h2 class="widget-title"> {{view.title}}</h2>
+
+                <div class="jarviswidget-ctrls" role="menu">
+                    <a href="javascript:void(0);"
+                       class="button-icon jarviswidget-toggle-btn"
+                       data-toggle="collapse"
+                       data-target="#{{view.widgetId}}"
+                       aria-expanded="false"
+                       aria-controls="{{view.widgetId}}"
+                       style="display: block;">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a href="javascript:void(0);"
+                       class="button-icon jarviswidget-fullscreen-btn"
+                       data-original-title="Fullscreen">
+                        <i class="fa fa-expand"></i>
+                    </a>
+                </div>
+
+            </header>
+
+            <div id="{{view.widgetId}}" class="collapse {{view.collapse}}">
+
+                <!-- widget div-->
+                <div class="no-padding" role="content">
+
+                    <!-- end widget edit box -->
+                    <div class="widget-body">
+                      {{yield}}
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end widget div -->
+        </div>
+        <!-- end widget -->
+
+    </article>
+

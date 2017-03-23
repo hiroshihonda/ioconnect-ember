@@ -1,0 +1,9 @@
+<div class="col-md-12">
+  {{#widget-collspandable title="Proposals" widget-id="proposals-widget"}}
+    {{ proposal/list-proposals table-id="proposal-table-list" proposals=proposals cloneProposal="cloneProposal" acceptProposal="acceptProposal" }}
+  {{/widget-collspandable}}
+</div>
+
+<div class="col-md-12">
+  {{ outlet "view-proposal" }}
+</div>

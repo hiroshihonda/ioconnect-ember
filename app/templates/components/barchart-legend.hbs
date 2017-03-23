@@ -1,0 +1,8 @@
+<ul>
+  {{#each d in chartData.datasets}}
+      <li>
+          <span style="background-color: {{d.backgroundColor}}"></span>
+        {{d.label}}
+      </li>
+  {{/each}}
+</ul>

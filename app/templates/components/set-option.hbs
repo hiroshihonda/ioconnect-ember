@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <span>{{setOption.name}}</span>
+
+        <button class="btn btn-default btn-xs pull-right" {{action 'addSetOptionItem'}}>
+            <i class="glyphicon glyphicon-plus-sign"></i>
+            Add
+        </button>
+    </div>
+
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th style="width: 60px"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each item in setOption.items}}
+            <tr>
+              {{#if item.id}}
+                  <td>{{item.value}}</td>
+                  <td>
+                      <a {{action 'deleteSetOptionItem' item}} class="btn btn-danger btn-sm">
+                          <i class="glyphicon glyphicon-remove-sign"></i> Remove
+                      </a>
+                  </td>
+              {{else}}
+                  <td>
+                    {{input class="form-control input-sm" value=item.value}}
+                  </td>
+                  <td>
+                      <button class="btn btn-warning btn-sm" {{action 'deleteSetOptionItem' item}}>
+                          <i class="glyphicon glyphicon-remove-sign"></i> Cancel
+                      </button>
+                  </td>
+              {{/if}}
+            </tr>
+        {{/each}}
+        <tr>
+            <td colspan="2">
+              {{promise-button label="Save" action="saveSetOption" promise=savePromise}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

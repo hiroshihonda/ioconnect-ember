@@ -1,0 +1,17 @@
+{{#get-started-slider action="setSlide" prevSlide="financing" slideName="solution-presentation"}}
+    <h1>Quote</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">Save presentation</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label>Presentation name</label>
+              {{input class="form-control" value=proposal.name}}
+            </div>
+            {{promise-button buttonType="danger" action="saveProposal" promise=saveProposalPromise label="Save Proposal"}}
+            <hr />
+          {{#if proposal.potential.externalId}}
+            {{promise-button label="Send Data Back to CRM" action="sendToCRM" promise=sendToCRMPromise buttonType="primary"}}
+          {{/if}}
+        </div>
+    </div>
+{{/get-started-slider}}

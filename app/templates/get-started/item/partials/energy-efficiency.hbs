@@ -1,0 +1,13 @@
+{{#get-started-slider action="setSlide" prevSlide="utility-data" nextSlide="address" slideName="energy-efficiency"}}
+  {{#widget-collspandable title="Upgrades" widget-id="energy-efficiency-widget" }}
+    {{#if selectedMarketProfile}}
+      {{#unless proposal.items.length}}
+          The selected market profile doesn't contain any upgrades. Please go to the <a {{action 'setSlide' 'address'}}>next</a> step.
+      {{/unless}}
+    {{else}}
+        Please select a <a {{action "setSlide" "lookup"}}>market profile</a>.
+    {{/if}}
+
+    {{ proposal/energy-efficiency update="saveProposalToApi" proposal=proposal }}
+  {{/widget-collspandable}}
+{{/get-started-slider}}

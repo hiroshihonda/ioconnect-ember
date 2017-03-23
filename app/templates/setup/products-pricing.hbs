@@ -1,0 +1,116 @@
+<h1>Products and Pricing</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Add new product</div>
+    <div class="panel-body">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Product name</label>
+              {{input value=newProduct.name class="form-control"}}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Savings Calculation</label>
+              {{view "select"
+              content=savingsCalculation
+              optionValuePath="content.key"
+              optionLabelPath="content.name"
+              class="form-control"
+              value=newProduct.savingsCalculation
+              }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Product pricing</label>
+              {{view "select"
+              content=productPricing
+              optionValuePath="content.key"
+              optionLabelPath="content.name"
+              value=newProduct.productPricing
+              class="form-control"
+              }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Price ($)</label>
+              {{input value=newProduct.price class="form-control"}}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Cost</label>
+              {{input value=newProduct.cost class="form-control"}}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {{promise-button buttonType="success" action="createProduct" label="Create" promise=createProductPromise}}
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Saved products</div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Savings Calculation</th>
+            <th>Product Pricing</th>
+            <th>Price</th>
+            <th>Cost</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each product in model}}
+            <tr>
+              {{#if product.isEditing}}
+                  <td>{{input class="form-control input-sm" value=product.name}}</td>
+                  <td>
+                    {{view "select"
+                    content=savingsCalculation
+                    optionValuePath="content.key"
+                    optionLabelPath="content.name"
+                    class="form-control input-sm"
+                    value=product.savingsCalculation
+                    }}</td>
+                  <td>
+                    {{view "select"
+                    content=productPricing
+                    optionValuePath="content.key"
+                    optionLabelPath="content.name"
+                    value=product.productPricing
+                    class="form-control input-sm"
+                    }}
+                  </td>
+                  <td>{{input class="form-control input-sm" value=product.price}}</td>
+                  <td>{{input class="form-control input-sm" value=product.cost}}</td>
+              {{else}}
+                  <td>{{product.name}}</td>
+                  <td>{{product.savingsCalculationName}}</td>
+                  <td>{{product.productPricingName}}</td>
+                  <td>{{product.price}}</td>
+                  <td>{{product.cost}}</td>
+              {{/if}}
+
+                <td>
+                  {{#if product.isEditing}}
+                      {{promise-button
+                      customClass="btn-sm"
+                      tagName="a"
+                      label="Save" action="saveProduct" actionParam=product
+                      buttonType="default" promise=product.savePromise}}
+                  {{else}}
+                      <button type="button" class="btn btn-sm btn-default" {{action "toggleEdit" product}}>Edit</button>
+                  {{/if}}
+                </td>
+                <td><button class="btn btn-sm btn-danger"  {{action "deleteProduct" product}}>Delete</button></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

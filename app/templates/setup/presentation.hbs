@@ -1,0 +1,58 @@
+<div class="page-header">
+    <h1>Presentation</h1>
+</div>
+
+<div class="form-horizontal col-md-8 col-xm-12">
+
+    <div class="form-group">
+        <label>Description</label>
+      {{textarea class="form-control" rows="4" value=settings.description.value}}
+    </div>
+
+    <div class="form-group">
+        <label>Why Choose Us</label>
+      {{textarea class="form-control" rows="4" value=settings.whyChooseUs.value}}
+    </div>
+
+    <div class="form-group">
+        <label>Testimonial</label>
+      {{textarea class="form-control" rows="4" value=settings.testimonial.value}}
+    </div>
+    <div class="form-group">
+        <label>Utility Company Name</label>
+      {{input class="form-control" value=settings.utilityCompanyName.value}}
+    </div>
+    <div class="form-group">
+        <label>Utility Company Information</label>
+      {{textarea class="form-control" rows="4" value=settings.utilityCompanyInformation.value}}
+    </div>
+    <div class="form-group">
+        <label>System Size</label>
+      {{input class="form-control" value=settings.systemSize.value}}
+    </div>
+    <div class="form-group">
+        <label>Installed Date</label>
+      {{input class="form-control" value=settings.installedDate.value}}
+    </div>
+
+    <div class="form-group">
+        <label>Testimonial Image</label>
+      {{file-upload url="/api/files" name=fileNames.presentationTestimonial}}
+      {{#if files.presentationTestimonial.name}}
+          <img src="{{files.presentationTestimonial.url}}" style="width: 150px;"/>
+      {{/if}}
+    </div>
+
+    <div class="form-group">
+        <label>Image 2</label>
+      {{file-upload url="/api/files" name=fileNames.presentationImage2}}
+      {{#if files.presentationImage2.name}}
+          <img src="{{files.presentationImage2.url}}" style="width: 150px;"/>
+      {{/if}}
+    </div>
+
+
+    <div class="form-group">
+        {{promise-button action="saveSettings" promise=saveSettingsPromise label="Save"}}
+    </div>
+</div>

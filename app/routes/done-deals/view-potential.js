@@ -1,0 +1,14 @@
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  setupController: function(controller, proposals){
+    controller.set('proposals', proposals);  
+  },		
+  renderTemplate: function(){
+    this.render('done-deals.singleview', {outlet: 'proposal'})
+  },
+  model: function (params) {
+  	let potential_id = params.potential_id;
+  	return this.store.find('proposal', { potential_id: potential_id, accepted: true });
+  }
+});

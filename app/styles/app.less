@@ -1,0 +1,737 @@
+@import (inline) "arrow.nav.css";
+@import (inline) "smart-admin.css";
+
+@color-dark-blue: #f99212;
+@color-dark-blue-bar: #f99212;
+@color-dark-black-bar: #353535;
+@color-light-sliver: #fff;
+@color-blue: #dedede;
+@color-dark-blue: #f99212;
+@color-dark-black: #353535;
+@color-green: #d0edb7;
+@color-black: #000000;
+
+@navbar-width: 200px;
+
+.bg-light-sliver {
+  background-color: @color-light-sliver;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  > .ember-view {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+#zoho-table {
+  a{
+    color : @color-black;
+  }
+}
+#proposal-table-list {
+  a{
+    color : @color-black;
+  }  
+}
+
+.application-wrapper {
+  width: 100%;
+  height: 100%;
+
+  .application-navbar-toggle {
+    display :none;
+  }
+
+  .application-navbar {
+    display: block;
+    width: @navbar-width;
+    height: 100%;
+    position: fixed;
+    .navbar {
+      display: block;
+    }
+
+    > .ember-view {
+      height: 100%;
+      width: inherit;
+    }
+  }
+
+  .main-container {
+    display: block;
+    margin-left: @navbar-width;
+    height: 100%;
+
+    > .ember-view {
+      height: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: 1366px){
+  .application-wrapper {
+    .application-navbar-toggle {
+      display: block;
+      position: absolute;
+      z-index: 4500;
+      background: @color-dark-black-bar;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      .icon-bar {
+        background: #fff;
+      }
+
+      .collapsed {
+        background: #fff;
+        .icon-bar {
+          background: @color-dark-blue-bar;
+        }
+      }
+    }
+    .application-navbar {
+      .navbar {
+        display: none;
+
+        &.collapse.in, &.collapsing {
+          display: block;
+          z-index: 3500;
+        }
+      }
+    }
+
+    .get-started {
+      .get-started-preview {
+        width: 300px;
+      }
+    }
+
+    .main-container {
+      margin-left: 0;
+    }
+  }
+}
+
+.main-container {
+  min-height: 550px;
+}
+
+.zoho-container {
+  margin-top: 20px;
+}
+
+table.table-selectable {
+  tr {
+    cursor: pointer;
+
+    &:not(.success) {
+      &:hover {
+        background-color: @color-light-sliver;
+      }
+    }
+  }
+  tbody {
+    background: #fff;
+  }
+}
+
+table.dataTable thead .sorting_asc:after {
+  content: none;
+}
+
+table.dataTable thead .sorting_desc:after {
+  content: none;
+}
+
+table.dataTable thead .sorting:after {
+  content: none;
+}
+
+.nav-wizard {
+  margin-bottom: 20px;
+}
+
+.footer,
+.presentation-footer {
+  margin-top: 20px;
+}
+
+.hidden-inputs {
+  display: none;
+}
+
+.navbar-top-bg {
+  background-color: #fff;
+}
+
+.breadcrumb-padding {
+  margin-top: 20px;
+}
+
+.bold {
+  font-weight: bold;
+  color: #428bca;
+}
+
+.red-highlight {
+  color: red;
+  font-weight: bold;
+}
+
+.paginate_button {
+  padding: 0 !important;
+}
+
+.paginate_button:hover {
+  border: 0 !important;
+}
+
+.wizard-slider-chevron {
+
+}
+
+.google-map {
+  width: 100%;
+  height: 100%;
+}
+
+.google-map .map-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 700px
+}
+
+.slider-arrow {
+  cursor: pointer;
+}
+
+.header-navbar {
+  border: 0;
+  border-radius: 0;
+  background-color: @color-dark-black-bar;
+  min-height: 60px;
+  height: 100%;
+
+}
+
+.header-navbar .navbar-nav {
+
+  margin-top: 20px;
+  width: 100%;
+
+  > li {
+    width: 100%;
+    margin: 0;
+
+    & > a {
+      color: #eaeaea;
+      cursor: pointer;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.nav-wizard {
+  li > a {
+    cursor: pointer;
+  }
+}
+
+.nav-pills, .nav-pills.nav-wizard {
+  li.active > a,
+  li.active > a:hover {
+    background-color: @color-dark-blue;
+  }
+
+  > li.active {
+    .nav-arrow {
+      border-color: transparent transparent transparent @color-dark-blue;
+    }
+    .nav-wedge {
+      border-color: @color-dark-blue @color-dark-blue @color-dark-blue transparent;
+    }
+  }
+}
+
+.panel {
+  &.panel-default:not(.panel-no-bg) {
+    .panel-heading {
+      background-color: @color-dark-blue;
+      color: #fff;
+    }
+    .panel-body,
+    table {
+      background-color: @color-light-sliver;
+    }
+  }
+}
+
+.jarviswidget {
+  header {
+    background-color: @color-dark-black;
+    color: #fff;
+  }
+  .jarviswidget-ctrls {
+    a {
+      color: #fff;
+    }
+  }
+
+  > div {
+    background-color: @color-light-sliver !important;
+  }
+}
+
+.preview-bar-item {
+  float: left;
+  margin: 10px;
+
+  &.pie-chart {
+  }
+
+  &.bar-chart {
+    width: 380px;
+  }
+
+  &.items-table {
+    //margin-left: 30px;
+  }
+}
+
+.get-started {
+  width: 100%;
+  height: 100%;
+
+  .get-started-content,
+  .get-started-preview {
+  }
+
+  .get-started-content {
+    padding-top: 10px;
+    width: auto;
+    overflow: hidden;
+    background-color: @color-blue;
+    display: block;
+    min-height: 100%;
+
+    .get-started-breadcrumb {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .panel {
+      border: 0;
+    }
+  }
+
+  .get-started-preview {
+    width: 380px;
+    float: right;
+    height: 100%;
+
+    .preview-bar-item {
+      display: block;
+      float: none;
+      margin: 0;
+
+      &.pie-chart svg {
+        display: block;
+        margin: auto;
+      }
+
+      &.bar-chart {
+        width: 100%;
+      }
+
+      &.items-table {
+        //margin-left: 30px;
+      }
+    }
+
+    .ember-view,
+    .preview-bar,
+    .panel-body {
+      height: inherit;
+    }
+
+    .action-buttons {
+      display: block;
+      margin: auto;
+    }
+
+    .preview-bar.panel {
+      border-radius: 0;
+    }
+
+    > .ember-view {
+      width: inherit;
+      z-index: 3040;
+      position: fixed;
+    }
+  }
+}
+
+.presentation-slider {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  min-height: 667px;
+  display: table;
+  table-layout: fixed;
+
+  @presentation-slider-height: 667px;
+  @presentation-slider-note-height: 72px;
+  @presentation-slider-body-height: @presentation-slider-height - 2 * @presentation-slider-note-height;
+
+  .presentation-border {
+    background-image: url('../images/header-bg.jpg');
+    width: 100%;
+    height: 60px;
+  }
+
+  .presentation-footer {
+    background-color: #EFEFEF;
+    width: 100%;
+    height: 100%;
+    display: table-row;
+  }
+
+  .presentation-body {
+    vertical-align: middle;
+    display: table-row;
+    height: 100%;
+
+    .presentation-body-holder {
+      display: table;
+      height: 100%;
+      width: 100%;
+    }
+
+    .presentation-content-wrapper,
+    .presentation-arrow-wrapper {
+      display: table-cell;
+      vertical-align: middle;
+	}
+	
+	.presentation-arrow-wrapper:hover {
+	  
+	  background:linear-gradient(to right, rgba(226, 226, 226, 0.3), rgba(55,55,55,0.8));
+    }
+	
+	.presentation-arrow-wrapper.left:hover {
+		background:linear-gradient(to left, rgba(226, 226, 226, 0.3), rgba(55,55,55,0.8))
+	}
+
+    .presentation-content {
+      min-height: 350px;
+      padding: 20px 0;
+      background: rgba(255, 255, 255, 0.85);
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+
+      .row {
+        margin: 0;
+      }
+    }
+
+    .presentation-arrow-wrapper {
+      width: 100px;
+    }
+
+    .presentation-arrow {
+      @presentation-arrow-size: 34px;
+
+      width: @presentation-arrow-size;
+      margin: auto;
+
+      span {
+        cursor: pointer;
+        font-size: @presentation-arrow-size;
+        display: table-row;
+        vertical-align: middle;
+      }
+	  
+	  color: #f4f4f4;
+    }
+  }
+
+  .energy-mix-item {
+    float: left;
+    min-height: 60px;
+    padding: 5px;
+    width: 20%;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  .slide-note {
+
+    @slide-bar-color: #6c6c6c;
+    display: table-row;
+    width: 100%;
+    height: @presentation-slider-note-height !important;
+
+    background: rgba(0, 0, 0, 0.3);
+
+    color: #fff;
+
+    &.slide-note-footer {
+      border-top: 1px solid @slide-bar-color;
+      padding-bottom: 20px;
+
+      .slide-note-body {
+        padding: 20px 30px;
+      }
+    }
+
+    &.slide-note-header {
+      border-bottom: 1px solid @slide-bar-color;
+
+      .slide-note-body {
+        padding: 10px 30px;
+      }
+    }
+
+  }
+
+  .slide-introduction {
+
+    &.prepared-for {
+      font-size: 16px;
+    }
+
+    &.prepared-for-subtitle {
+      font-size: 14px;
+    }
+  }
+
+  .energy-mix-chart {
+    svg {
+      display: block;
+      margin: auto;
+    }
+  }
+}
+
+.btn-primary {
+  background-color: @color-dark-blue;
+  border-color: #c06212;
+}
+
+.btn-primary.active, .btn-primary:active,
+.btn-primary:hover
+{
+	background-color:#c97212;
+	border-color:#903212;
+}
+
+.btn-success {
+	background-color: @color-blue;
+	border-color:@color-dark-blue;
+}
+
+.btn-success.active, .btn-success:active,
+.btn-success:hover {
+	background-color: @color-dark-blue;
+}
+
+.btn.disabled {
+	background-color: #f9f2cd;
+	border-color: #c9c2cd;
+}
+
+.pagination > .active > a, 
+.pagination > .active > a:focus, 
+.pagination > .active > a:hover, 
+.pagination > .active > span, 
+.pagination > .active > span:focus, 
+.pagination > .active > span:hover {
+	background-color: @color-blue;
+	border-color: @color-dark-blue;
+  color: @color-black;
+}
+
+.borderless {
+  td, th {
+    border: none !important;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.icon-white {
+  color: @color-light-sliver;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.fullscreen-button {
+  font-size: 25px;
+  margin: 18px;
+}
+
+.price-override {
+  width: 65px;
+}
+
+
+.panel.panel-default.get-started-panel {
+
+  .slider-arrow {
+    margin-top: 220px;
+  }
+
+  .panel-body.get-started-slide {
+    background-color: @color-blue;
+    border-radius: 5px;
+  }
+}
+
+.preview-bar {
+  &.panel.panel-default {
+    .panel-body {
+      background-color: @color-light-sliver;
+
+      .table {
+        background-color: inherit;
+      }
+    }
+  }
+}
+
+.panel.panel-default.energy-reduction-item {
+  .panel-heading {
+    color: #000;
+  }
+
+  .panel-body {
+    background-color: #ffffff;
+  }
+}
+
+.incentive {
+
+  width: 100px;
+
+  .incentive-type,
+  .incentive-value {
+    float: left;
+    margin: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .incentive-type {
+    width: 50px;
+  }
+
+  .incentive-value {
+    width: 50px;
+  }
+}
+
+.chart-legend {
+  ul {
+    list-style: none;
+
+    li {
+      span {
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.modal.modal-large {
+
+  .modal-dialog {
+    width: 1024px;
+  }
+}
+
+#pdf-workspace {
+  @workspace-height: 880px;
+
+  > div > .ember-view {
+    height: @workspace-height
+  }
+}
+
+.full-size {
+	width:100%;
+	height:100%;
+}
+
+.splash-wrapper {
+	display:table;
+	text-align: center;
+	
+	> div {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+	div {
+		margin: 20px 0;
+	}
+}
+#zoho-table_paginate {
+  li {
+    a{
+      color: #0f0000;
+    }
+  }
+  #zoho-table_previous {
+    a {
+      color: #7f7574;
+    }    
+  }
+  #zoho-table_next {
+    a {
+      color: #7f7574;
+    }
+  }
+}
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+  background-color: #e6e6e6;
+}
+#user-menu {
+  li {
+    a {
+      color : #fff;
+    }
+  }
+}

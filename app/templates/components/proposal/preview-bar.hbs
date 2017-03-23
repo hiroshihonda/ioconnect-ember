@@ -1,0 +1,56 @@
+<div class="preview-bar panel panel-default">
+    <div class="panel-body">
+
+            <div class="preview-bar-item bar-chart">
+
+              {{
+              proposal/barchart-all-savings
+              chart-id="barchart-bottom"
+              style="width: 100%; height: 100%"
+              proposal=proposal
+              }}
+            </div>
+            <div class="preview-bar-item pie-chart">
+              {{proposal/pie-chart proposal=proposal}}
+            </div>
+            <div class="preview-bar-item items-table">
+                <table class="table borderless">
+                    <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Pricing</th>
+                        <th>Offset</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each item in proposal.items}}
+                      {{#if item.selected}}
+                          <tr>
+                              <td>{{item.marketItem.product.name}}</td>
+                              <td>${{numberFormat item.price 0}}</td>
+                              <td>{{numberFormat item.savingsCalculation.annualKwhSavings 0}} KWh</td>
+                          </tr>
+                      {{/if}}
+                    {{/each}}
+                    </tbody>
+                </table>
+                <br class="clearfix"/>
+
+                <div class="step-container action-buttons" id="presentation-wrapper">
+                  {{proposal/action-buttons update="saveProposalToApi" proposal=proposal settings=settings cloneProposal="cloneProposal" acceptProposal="acceptProposal"}}
+                </div>
+            </div>
+
+          {{!--
+                      <div class="preview-bar-item payment-savings">
+                          <strong>Payment Savings</strong><br /><br />
+                          Bill Before Solar: ${{numberFormat proposal.potential.utilityUsage.avgElectricityBill 0}} / month
+                          <br /><br />
+                          Bill After Solar:  ${{numberFormat proposal.billAfterSolar 0}} / month
+                          <br /><br />
+                          Finance Payment: ${{numberFormat proposal.monthlyRate 0}} / month
+                      </div>
+          --}}
+
+    </div>
+</div>

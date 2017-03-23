@@ -1,0 +1,32 @@
+<div class="col-md-6">
+    <h2>About Us</h2>
+  <br />
+    <img src="{{files.logo.url}}" alt="Image" style="width: 150px" />
+
+    <br /><br /><br />
+
+    <p>
+        {{settings.description.value}}
+    </p>
+</div>
+<div class="col-md-6">
+  <h2>Why Choose Us</h2>
+  {{settings.whyChooseUs.value}}
+    <br />
+    <h2>Testimonial</h2>
+    <div class="media">
+        <div class="media-left"><img src="{{files.presentationTestimonial.url}}" style="width: 100px; height: 100px" /></div>
+        <div class="media-body">
+            {{settings.testimonial.value}}
+        </div>
+    </div>
+    <div class="media">
+        <div class="media-left"><img src="{{files.presentationImage2.url}}" style="width: 100px; height: 100px" /></div>
+        <div class="media-body">
+            <strong>System Size: </strong> {{settings.systemSize.value}} <br />
+            <br />
+            <strong>Installed Date: </strong> {{settings.installedDate.value}}
+        </div>
+    </div>
+    <br />
+</div>

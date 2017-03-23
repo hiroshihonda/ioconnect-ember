@@ -1,0 +1,27 @@
+{{#if (eq item.marketItem.product.savingsCalculationName savingsCalculation.KWH)}}
+  <div class="form-group">
+      <label>Monthly KWh</label>
+      {{input class="form-control" value=item.kwh.kwhUsage}}
+  </div>
+{{else if (eq item.marketItem.product.savingsCalculationName savingsCalculation.CALCULATION)}}
+      <div class="form-group">
+          <label>Existing Draw</label>
+        {{input class="form-control" value=item.calculation.existingDraw}}
+      </div>
+
+      <div class="form-group">
+          <label>New Draw</label>
+        {{input class="form-control" value=item.calculation.newDraw}}
+      </div>
+
+      <div class="form-group">
+          <label>Daily Hours Usage</label>
+        {{input class="form-control" value=item.calculation.hoursDaily}}
+      </div>
+{{else if (eq item.marketItem.product.savingsCalculationName savingsCalculation.PERCENTAGE_TOTAL)}}
+  <div class="form-group">
+      <label>Percent of Heating or Cooling Usage</label>
+      {{input class="form-control" value=item.percent.percentUsage}}
+  </div>
+{{/if}}
+

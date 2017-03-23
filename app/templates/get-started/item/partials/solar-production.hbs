@@ -1,0 +1,106 @@
+{{#get-started-slider action="setSlide" nextSlide="financing" prevSlide="address" slideName="solar-production"}}
+
+
+    <div class="col-md-12" id="some-wrapper">
+      {{#each msg in pvWattsResult.errors}}
+          <div class="alert alert-danger">
+            {{msg}}
+          </div>
+      {{/each}}
+      {{#if pvWattsResult.incomplete}}
+          <div class="alert alert-warning">
+              You must complete all fields to process pvwatts.
+          </div>
+      {{/if}}
+      {{#if pvWattsResult.success}}
+          <div class="alert alert-success">
+              PVWatts successfully processed.
+          </div>
+      {{/if}}
+      {{#widget-collspandable title="System Info" widget-id="system-info-widget" collapsed=false}}
+	  <div class="pull-right">
+		<button class="btn btn-primary" {{action "addArray"}}>Add Array</button>
+		<button class="btn btn-primary" {{action "removeArray"}}>Remove Array</button>
+		</div>
+		<div class="clearfix"></div>
+		<div class="row">
+          {{#each pvwatts in proposal.pvwatts}}
+		  <div class="col-sm-3 pull-left">
+		  <div class="form-group">
+              <label>DC System size</label>
+            {{input value=pvwatts.system_capacity class="form-control"}}
+          </div>
+          <div class="form-group">
+              <label>
+                {{input type="checkbox" checked=usePvwatts}}
+                  PV Watts
+              </label>
+          </div>
+
+        {{#if usePvwatts}}
+
+
+            <div class="form-group">
+                <label>Tilt</label>
+              {{input value=pvwatts.tilt class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>Azimuth</label>
+              {{input value=pvwatts.azimuth class="form-control"}}
+            </div>
+        {{else}}
+            <div class="form-group">
+                <label>January Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.jan class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>February Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.feb class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>March Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.mar class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>April Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.apr class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>May Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.may class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>June Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.jun class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>July Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.jul class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>August Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.aug class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>September Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.sep class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>October Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.oct class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>November Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.nov class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>December Energy (kWh)</label>
+              {{input value=pvwatts.monthlyEnergy.dec class="form-control"}}
+            </div>
+        {{/if}}
+		</div>
+		{{/each}}
+		</div>
+      {{/widget-collspandable}}
+    </div>
+{{/get-started-slider}}

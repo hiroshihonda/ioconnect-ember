@@ -1,0 +1,39 @@
+<h1>
+    <center>Annual Cash Flow</center>
+</h1>
+
+<br/>
+<div class="row">
+    <table class="table text-center table-striped table-condensed">
+        <thead>
+        <tr>
+            <th>Year</th>
+            <th>Without Energy Updates</th>
+            <th>With Energy Updates</th>
+            <th>Tax Credits + Rebates + Incentives</th>
+            <th>Annual Savings</th>
+			{{#if proposal.selectedLoanOption.term}}
+			<th>Financing</th>
+			{{/if}}
+            <th>Cumulative Savings</th>
+			
+        </tr>
+        </thead>
+        <tbody>
+        {{#each idx in cashFlowYears}}
+            <tr>
+                <td>{{idx}}</td>
+                <td>${{numberFormat (arrayAt proposal.bill25YearsWithoutItems idx)}}</td>
+                <td>${{numberFormat (arrayAt proposal.bill25YearsWithItems idx)}}</td>
+                <td>${{numberFormat (arrayAt proposal.incentives25Years idx)}}</td>
+                <td>${{numberFormat (arrayAt proposal.annualSavings25Years idx)}}</td>
+				{{#if proposal.selectedLoanOption.term}}
+				<td>${{numberFormat proposal.selectedLoanOption.financing}}</td>
+				{{/if}}
+                <td class="{{if (lt (arrayAt proposal.cumulativeSavings25Years idx) 0) "text-danger" "text-success"}}">
+                    ${{numberFormat (arrayAt proposal.cumulativeSavings25Years idx)}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

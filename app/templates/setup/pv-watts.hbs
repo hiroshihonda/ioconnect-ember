@@ -1,0 +1,46 @@
+<h1>PV Watts</h1>
+
+{{#widget-collspandable title="Advanced Parameters" widget-id="system2-info-widget" collapsed=false}}
+    <div>
+        <form id="some-form">
+            <div class="form-group">
+                <label>DC to AC size ratio</label>
+              {{input value=settings.dc_ac_ratio.value class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>Inverter efficiency (%)</label>
+              {{input value=settings.inv_eff.value class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label for="price-per-watt">Ground Coverage Ratio</label>
+              {{input value=settings.gcr.value class="form-control"}}
+            </div>
+            <div class="form-group">
+                <label>Module Type</label>
+              {{view "select"
+              content=moduleTypes
+              optionLabelPath="content.name"
+              optionValuePath="content.value"
+              value=settings.module_type.value
+              class="form-control"
+              }}
+            </div>
+            <div class="form-group">
+                <label>Array Type</label>
+              {{view "select"
+              content=arrayTypes
+              optionLabelPath="content.name"
+              optionValuePath="content.value"
+              value=settings.array_type.value
+              class="form-control"
+              }}
+            </div>
+            <div class="form-group">
+                <label>System Losses (%)</label>
+              {{input value=settings.losses.value class="form-control"}}
+            </div>
+        </form>
+    </div>
+{{/widget-collspandable}}
+
+{{promise-button label="Save" action="saveSettings" promise=saveSettingsPromise}}

@@ -1,0 +1,158 @@
+{{#get-started-slider slideName="financing" action="setSlide" nextSlide="solution-presentation" prevSlide="solar-production"}}
+    <div class="well">
+        <div class="col-md-4 col-md-offset-2">
+            <strong>Watts</strong><br/>
+          {{numberFormat proposal.systemCapacityKw 0}}
+        </div>
+        <div class="col-md-4 col-md-offset-2">
+            <strong>PPW</strong><br/>
+
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+              {{input class="form-control input-sm" value=proposal.design.pricePerWatt}}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Financial summary
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Federal Tax Credit</th>
+                <th>State Tax Credit</th>
+                <th>Utility Incentive</th>
+                <th>Rebates</th>
+                <th>Net Cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each item in proposal.billableItems}}
+                <tr>
+                    <td>{{item.marketItem.product.name}}</td>
+                    <td>
+                      {{input class="form-control input-sm price-override" placeholder="$" value=item.marketItem.product.price}}
+                    </td>
+                    <td>
+                        <div class="incentive">
+                          {{view "select"
+                          content=incentiveTypes
+                          optionLabelPath="content.value"
+                          optionValuePath="content.name"
+                          class="form-control input-sm incentive-type"
+                          value=item.marketItem.federal.type
+                          }}
+                          {{input class="form-control input-sm incentive-value" value=item.marketItem.federal.value}}
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="incentive">
+                          {{view "select"
+                          content=incentiveTypes
+                          optionLabelPath="content.value"
+                          optionValuePath="content.name"
+                          class="form-control input-sm incentive-type"
+                          value=item.marketItem.state.type
+                          }}
+                          {{input class="form-control input-sm incentive-value" value=item.marketItem.state.value}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="incentive">
+                          {{view "select"
+                          content=incentiveTypes
+                          optionLabelPath="content.value"
+                          optionValuePath="content.name"
+                          class="form-control input-sm incentive-type"
+                          value=item.marketItem.utility.type
+                          }}
+                          {{input class="form-control input-sm incentive-value" value=item.marketItem.utility.value}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="incentive">
+                          {{view "select"
+                          content=incentiveTypes
+                          optionLabelPath="content.value"
+                          optionValuePath="content.name"
+                          class="form-control input-sm incentive-type"
+                          value=item.marketItem.rebates.type
+                          }}
+                          {{input class="form-control input-sm incentive-value" value=item.marketItem.rebates.value}}
+                        </div>
+                    </td>
+                    <td>${{numberFormat item.netCost}}</td>
+                </tr>
+            {{/each}}
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>${{numberFormat proposal.grossPrice}}</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><strong>${{numberFormat proposal.netPrice 0}}</strong></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Loan Information
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Downpayment</label>
+                      <div class="input-group">
+                          <span class="input-group-addon">USD</span>
+                        {{input class="form-control" value=proposal.downPayment}}
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-selectable">
+            <thead>
+              <tr>
+                  <td></td>
+                  <th>Loan Option</th>
+                  <th>Months</th>
+                  <th>Interest</th>
+                  <th>Gross Price</th>
+                  <th>Downpayment</th>
+                  <th>Incentives</th>
+                  <th>Amount Financed</th>
+                  <th>Monthly Payment</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each loan in proposal.loanOptions}}
+                <tr class="{{if loan.selected 'success' ''}}" {{action 'selectLoanOption' loan}}>
+                    <td>
+                        {{#if loan.selected}}
+                          <i class="glyphicon glyphicon-ok-circle"></i>
+                        {{/if}}
+                    </td>
+                    <td>{{loan.name}}</td>
+                    <td>{{loan.term}}</td>
+                    <td>{{loan.interestRate}}%</td>
+                    <td>${{numberFormat proposal.grossPrice}}</td>
+                    <td>${{numberFormat proposal.downPayment}}</td>
+                    <td>${{numberFormat loan.incentives}}</td>
+                    <td>${{numberFormat loan.amountFinanced}}</td>
+                    <td>${{numberFormat loan.monthlyRate}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+        </table>
+    </div>
+{{/get-started-slider}}

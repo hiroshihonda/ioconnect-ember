@@ -1,0 +1,92 @@
+<h1>Market Profile</h1>
+<hr/>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Create a new market profile
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Market profile name</label>
+                          {{input type="text" value=newProfile.name class="form-control"}}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Inflation Rate</label>
+                          {{input class="form-control" value=newProfile.inflationRate placeholder="%"}}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Connection fee</label>
+                          {{input class="form-control" value=newProfile.connectionFee placeholder="$"}}
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Default Solar Price</label>
+                          {{input class="form-control" value=newProfile.defaultSolarPrice placeholder="$"}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                  {{market-profile/items-table profile=newProfile products=products}}
+                    <div class="col-md-2">
+                      {{promise-button action="saveProfile" label="Save" promise=saveProfilePromise}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      {{#each prof in model}}
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                {{prof.name}}
+              </div>
+              <div class="panel-body">
+                  <div class="row">
+                    {{market-profile/items-table profile=prof products=products}}
+                  </div>
+                  <br class="clearfix"/>
+
+                  <div class="row">
+                      <div class="col-md-4">
+                          <div class="input-group">
+                              <div class="input-group-addon">Inflation %</div>
+                            {{input class="form-control" value=prof.inflationRate}}
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="input-group">
+                              <div class="input-group-addon">Connection fee $</div>
+                            {{input class="form-control" value=prof.connectionFee}}
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="input-group">
+                              <div class="input-group-addon">Default Solar price $</div>
+                            {{input class="form-control" value=prof.defaultSolarPrice}}
+                          </div>
+                      </div>
+                  </div>
+                  <br/>
+
+                  <div class="row">
+                      <div class="col-md-5">
+                        {{input class="form-control" value=prof.name}}
+                      </div>
+
+                    {{promise-button promise=prof.updatePromise label="Update" action="updateSavedProfile" actionParam=prof}}
+                      <button class="btn btn-danger" {{action 'deleteSavedProfile' prof}}>Delete profile</button>
+                  </div>
+              </div>
+          </div>
+      {{/each}}
+
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{{charts/barchart-cumulative-savings proposal=proposal style=barChartStyle}}
+
+<br/><br/>
+
+<div class="row">
+    <div class="col-md-4 text-center">
+        25 Year Savings
+        <br/>
+        ${{numberFormat (arrayAt proposal.cumulativeSavings25Years 25)}}
+    </div>
+    <div class="col-md-4 text-center">
+        Payback
+        <br/>
+        {{proposal.paybackYears}} Years
+    </div>
+    <div class="col-md-4 text-center">
+        <div class="media">
+            <div class="media-left">
+                <i class="glyphicon glyphicon-home" style="font-size: 3em"></i>
+            </div>
+            <div class="media-body">
+                Increased Home Value
+                <br/>
+                ${{numberFormat "15000"}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/>

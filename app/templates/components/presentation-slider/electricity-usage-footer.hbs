@@ -1,0 +1,23 @@
+    <table class="table borderless">
+        <tbody>
+        <tr>
+            <td><strong>Low</strong></td>
+            <td>${{numberFormat proposal.potential.utilityUsage.lowElectricityBill}}</td>
+            <td><strong>Annual Electric Bill</strong></td>
+            <td>${{numberFormat proposal.potential.utilityUsage.sumElectricityBill}}</td>
+        </tr>
+        <tr>
+            <td><strong>Average</strong></td>
+            <td>${{numberFormat proposal.potential.utilityUsage.avgElectricityBill}}</td>
+            <td><strong>Annual Inflation Rate</strong></td>
+            <td>{{numberFormat proposal.inflationRate}}%</td>
+        </tr>
+        <tr>
+            <td><strong>High</strong></td>
+            <td>${{numberFormat proposal.potential.utilityUsage.highElectricityBill}}</td>
+            <td><strong>Electric Bill Over 25 Years</strong></td>
+            <td>${{numberFormat proposal.potential.utilityUsage.sumElectricityBill25Years}}</td>
+        </tr>
+        </tbody>
+</table>
+<div class="clearfix"></div>

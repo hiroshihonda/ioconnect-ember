@@ -1,0 +1,22 @@
+{{#each  item in proposal.selectedItems}}
+    <div class="col-md-4">
+        <div class="panel panel-default energy-reduction-item">
+            <div class="panel-heading" style="background-color: {{item.rgbColorCss}};">
+              {{item.marketItem.product.name}}
+            </div>
+            <table class="table borderless">
+                <tbody>
+                  <tr>
+                      <td>Average Monthly Savings:</td>
+                      <td>${{numberFormat item.avgMonthlyUSDSavings}}</td>
+                  </tr>
+                   <tr>
+                      <td>Annual Savings:</td>
+                      <td>${{numberFormat item.annualUSDSavings}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{{/each}}
+

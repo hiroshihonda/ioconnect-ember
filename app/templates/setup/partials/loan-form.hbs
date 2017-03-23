@@ -1,0 +1,48 @@
+<div class="form-group">
+    <label>Loan Name</label>
+  {{input class="form-control" value=model.name}}
+</div>
+<div class="form-group">
+    <label>Interest Rate</label>
+
+    <div class="input-group">
+        <span class="input-group-addon">%</span>
+      {{input class="form-control" value=model.interestRate}}
+    </div>
+</div>
+<div class="form-group">
+    <label>Term</label>
+    <div class="input-group">
+        <span class="input-group-addon">Months</span>
+      {{input class="form-control" value=model.term}}
+    </div>
+</div>
+<div class="form-group">
+    <label>Include in Buydown</label>
+
+    <div class="checkbox">
+        <label>{{input type="checkbox" checked=model.federal}} Federal</label>
+    </div>
+    <div class="checkbox">
+        <label>{{input type="checkbox" checked=model.state}} State</label>
+    </div>
+    <div class="checkbox">
+        <label>{{input type="checkbox" checked=model.utility}} Utility</label>
+    </div>
+    <div class="checkbox">
+        <label>{{input type="checkbox" checked=model.rebate}} Rebate</label>
+    </div>
+    <div class="checkbox">
+        <label>{{input type="checkbox" checked=model.firstYearSavings}} 1st Year Savings</label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>
+        Interest Capitalization
+    </label>
+
+    <div class="checkbox">
+        <label>{{input type="checkbox" checked=model.interestCapitalization}} Yes</label>
+    </div>
+</div>

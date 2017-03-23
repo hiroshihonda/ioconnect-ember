@@ -1,0 +1,26 @@
+<center><h1>Current Electricity Usage</h1></center>
+<br />
+<div class="row">
+    <div class="col-md-6">
+      {{
+      charts/barchart-potential
+      style="width: 100%; height: 400px;"
+      usageCalendar=proposal.potential.utilityUsage.usageCalendar
+      billCalendar=proposal.potential.utilityUsage.billCalendar
+      }}
+    </div>
+
+    <div class="col-md-6">
+        <h2>{{settings.utilityCompanyName.value}}</h2>
+        <br />
+        <p>
+            {{settings.utilityCompanyInformation.value}}
+        </p>
+
+        <br />
+
+        <br />
+
+        {{partial 'components/presentation-slider/electricity-usage-footer'}}
+    </div>
+</div>

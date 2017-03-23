@@ -1,0 +1,116 @@
+<h2>
+    <center>Assumptions</center>
+</h2>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-4 pull-left">
+        <div class="panel panel-default">
+            <div class="panel-heading">Customer Information</div>
+            <table class="table borderless">
+                <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>{{proposal.potential.potentialName}}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{proposal.potential.address}}</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>--</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-4 pull-right">
+        <div class="panel panel-default">
+            <div class="panel-heading">Efficiency Information</div>
+            <table class="table borderless">
+                <tbody>
+                {{#each item in proposal.selectedItems}}
+                    <tr>
+                        <td>{{item.marketItem.product.name}} Savings</td>
+                        <td>${{numberFormat item.avgMonthlyUSDSavings}}/mo</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-md-4 pull-left">
+        <div class="panel panel-default">
+            <div class="panel-heading">Utility Information</div>
+            <table class="table borderless">
+                <tbody>
+                <tr>
+                    <td>Utility Name</td>
+                    <td>{{proposal.potential.utility}}</td>
+                </tr>
+                <tr>
+                    <td>Rate Schedule</td>
+                    <td>{{proposal.potential.rateSchedule}}</td>
+                </tr>
+                <tr>
+                    <td>Average Bill</td>
+                    <td>{{proposal.potential.utilityUsage.averageElectricityBill}}</td>
+                </tr>
+                <tr>
+                    <td>High Bill</td>
+                    <td>${{numberFormat proposal.potential.utilityUsage.highElectricityBill}}</td>
+                </tr>
+                <tr>
+                    <td>Low bill</td>
+                    <td>${{numberFormat proposal.potential.utilityUsage.lowElectricityBill}}</td>
+                </tr>
+                <tr>
+                    <td>Annual Usage</td>
+                    <td>{{proposal.potential.utilityUsage.annualKwh}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-4 pull-right">
+        <div class="panel panel-default">
+            <div class="panel-heading">Solar Information</div>
+            <table class="table borderless">
+                <tbody>
+                <tr>
+                    <td>Size</td>
+                    <td>{{numberFormat proposal.systemCapacity}} KW</td>
+                </tr>
+                <tr>
+                    <td>Tilt</td>
+                    <td>{{numberFormat proposal.pvwatts.firstObject.tilt}}</td>
+                </tr>
+                <tr>
+                    <td>Azimuth</td>
+                    <td>{{numberFormat proposal.pvwatts.firstObject.azimuth}}</td>
+                </tr>
+                <tr>
+                    <td>Annual Production</td>
+                    <td>{{numberFormat proposal.ac_annual}} Watts</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        How Calculations are made: Panel Production is calculated using The National Renewable Energy Laboratory's PV Watts production tool. Utility savings is based on Average Cost of Electricity which is calculated by dividing the Monthly Bill by the Monthly Usage. {{settings.companyName.value}} does not guarantee any savings or production unless explicitly stated in the contract.
+    </div>
+</div>
+
+<br />

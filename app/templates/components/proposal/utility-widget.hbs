@@ -1,0 +1,154 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="low-electric-bill">Low Electric Bill</label>
+          {{input id="low-electric-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Low Electric Bill" disabled="disabled"
+          name="system-size-input" type="text" value=potential.utilityUsage.lowElectricityBill}}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="high-electric-bill">High Electric Bill</label>
+          {{input id="high-electric-bill" class="ember-view ember-text-field form-control input-sm" disabled="disabled"
+          placeholder="High Electric Bill" name="system-production-input" type="text" value=potential.utilityUsage.highElectricityBill}}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="high-electric-bill">Average Electric Bill</label>
+          {{input id="avg-electric-bill" class="ember-view ember-text-field form-control input-sm" disabled="disabled"
+          placeholder="High Electric Bill" name="system-production-input" type="text" value=potential.utilityUsage.avgElectricityBill}}
+        </div>
+    </div>
+    <hr />
+
+    <div class="col-md-6">
+        <form id="project-design-form" novalidate="novalidate">
+            <div class="form-group">
+                <label for="utility-jan-usage">Jan Usage</label>
+              {{input id="utility-jan-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Jan Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.jan }}
+            </div>
+            <div class="form-group">
+                <label for="potential-feb-usage">Feb Usage</label>
+              {{input id="potential-feb-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Feb Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.feb}}
+            </div>
+            <div class="form-group">
+                <label for="potential-mar-usage">Mar Usage</label>
+              {{input id="potential-mar-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Mar Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.mar}}
+            </div>
+            <div class="form-group">
+                <label for="potential-apr-usage">Apr Usage</label>
+              {{input id="potential-apr-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Apr Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.apr}}
+            </div>
+            <div class="form-group">
+                <label for="potential-may-usage">May Usage</label>
+              {{ input id="potential-may-usage" class="ember-view ember-text-field form-control input-sm" placeholder="May Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.may}}
+            </div>
+            <div class="form-group">
+                <label for="potential-jun-usage">Jun Usage</label>
+              {{input id="potential-jun-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Jun Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.jun}}
+            </div>
+            <div class="form-group">
+                <label for="potential-jul-usage">Jul Usage</label>
+              {{input id="potential-jul-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Jul Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.jul}}
+            </div>
+            <div class="form-group">
+                <label for="potential-aug-usage">Aug Usage</label>
+              {{input id="potential-aug-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Aug Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.aug}}
+            </div>
+            <div class="form-group">
+                <label for="potential-sep-usage">Sep Usage</label>
+              {{input id="potential-sep-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Sep Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.sep}}
+            </div>
+            <div class="form-group">
+                <label for="potential-oct-usage">Oct Usage</label>
+              {{input id="potential-oct-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Oct Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.oct}}
+            </div>
+            <div class="form-group">
+                <label for="potential-nov-usage">Nov Usage</label>
+              {{input id="potential-nov-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Nov Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.nov}}
+            </div>
+            <div class="form-group">
+                <label for="potential-dec-usage">Dec Usage</label>
+              {{input id="potential-dec-usage" class="ember-view ember-text-field form-control input-sm" placeholder="Dec Usage"
+              name="price-per-watt" type="text" value=potential.utilityUsage.usageCalendar.dec}}
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <form id="project-design-form" novalidate="novalidate">
+
+            <div class="form-group">
+                <label for="potential-jan-bill">Jan Bill</label>
+              {{input id="potential-jan-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Jan Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.jan}}
+            </div>
+            <div class="form-group">
+                <label for="potential-feb-bill">Feb Bill</label>
+              {{input id="potential-feb-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Feb Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.feb}}
+            </div>
+            <div class="form-group">
+                <label for="potential-mar-bill">Mar Bill</label>
+              {{input id="potential-mar-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Mar Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.mar}}
+            </div>
+            <div class="form-group">
+                <label for="potential-apr-bill">Apr Bill</label>
+              {{input id="potential-apr-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Apr Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.apr}}
+            </div>
+            <div class="form-group">
+                <label for="potential-may-bill">May Bill</label>
+              {{input id="potential-may-bill" class="ember-view ember-text-field form-control input-sm" placeholder="May Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.may}}
+            </div>
+            <div class="form-group">
+                <label for="potential-jun-bill">Jun Bill</label>
+              {{input id="potential-jun-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Jun Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.jun}}
+            </div>
+            <div class="form-group">
+                <label for="potential-jul-bill">Jul Bill</label>
+              {{input id="potential-jul-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Jul Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.jul}}
+            </div>
+            <div class="form-group">
+                <label for="potential-aug-bill">Aug Bill</label>
+              {{input id="potential-aug-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Aug Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.aug}}
+            </div>
+            <div class="form-group">
+                <label for="potential-sep-bill">Sep Bill</label>
+              {{input id="potential-sep-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Sep Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.sep}}
+            </div>
+            <div class="form-group">
+                <label for="potential-oct-bill">Oct Bill</label>
+              {{input id="potential-oct-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Oct Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.oct}}
+            </div>
+            <div class="form-group">
+                <label for="potential-nov-bill">Nov Bill</label>
+              {{input id="potential-nov-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Nov Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.nov}}
+            </div>
+            <div class="form-group">
+                <label for="potential-dec-bill">Dec Bill</label>
+              {{input id="potential-dec-bill" class="ember-view ember-text-field form-control input-sm" placeholder="Dec Bill"
+              name="price-per-watt" type="text" value=potential.utilityUsage.billCalendar.dec}}
+            </div>
+        </form>
+    </div>
+</div>

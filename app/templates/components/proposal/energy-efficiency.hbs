@@ -1,0 +1,15 @@
+{{#each item in proposal.items}}
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>
+              {{input type="checkbox" checked=item.selected}}
+              {{item.marketItem.product.name}}
+            </label>
+        </div>
+      <div class="clearfix"></div>
+      {{#if item.selected}}
+        {{item-form item=item}}
+      {{/if}}
+    </div>
+{{/each}}

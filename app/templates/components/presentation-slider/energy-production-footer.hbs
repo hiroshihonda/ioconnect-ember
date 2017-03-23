@@ -1,0 +1,68 @@
+<div class="col-md-4">
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>System Size (DC) KW</td>
+            <td>{{proposal.systemCapacity}}</td>
+        </tr>
+        <tr>
+            <td>Azimuth</td>
+            <td>{{proposal.pvwatts.firstObject.azimuth}}</td>
+        </tr>
+        <tr>
+            <td>Tilt</td>
+            <td>{{proposal.pvwatts.firstObject.tilt}}</td>
+        </tr>
+        <tr>
+            <td>Annual Production</td>
+            <td>{{numberFormat proposal.ac_annual}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-4">
+    <table class="table">
+        <tbody>
+          <tr>
+              <td>Solar module</td>
+              <td>{{proposal.pvwatts.firstObject.moduleTypeName}}</td>
+          </tr>
+          <tr>
+              <td>Inverter</td>
+              <td>{{proposal.pvwatts.firstObject.inv_eff}}%</td>
+          </tr>
+          <tr>
+              <td>Racking</td>
+              <td>{{proposal.pvwatts.firstObject.arrayTypeName}}</td>
+          </tr>
+          <tr>
+              <td>Monitoring</td>
+              <td>--</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-4">
+    <table class="table">
+        <tbody>
+          <tr>
+              <td>PPW</td>
+              <td>${{proposal.design.pricePerWatt}}</td>
+          </tr>
+          <tr>
+              <td>PPkWh</td>
+              <td>${{numberFormat proposal.potential.utilityUsage.kwhPrice 2}}</td>
+          </tr>
+          <tr>
+              <td>Annual Degredation:</td>
+              <td>--</td>
+          </tr>
+          <tr>
+              <td>25 Year Production Guarantee</td>
+              <td>--</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

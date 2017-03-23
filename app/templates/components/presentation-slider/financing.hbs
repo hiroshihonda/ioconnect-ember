@@ -1,0 +1,45 @@
+<h1>
+    <center>Financing</center>
+</h1>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table borderless">
+            <tbody>
+            <tr>
+                <td><strong>Project Cost</strong></td>
+                <td>${{numberFormat proposal.grossPrice}}</td>
+            </tr>
+            <tr>
+                <td><strong>Downpayment</strong></td>
+                <td>${{numberFormat proposal.downPayment}}</td>
+            </tr>
+            <tr>
+                <td><strong>Paydown Amount after incentives</strong></td>
+                <td>${{numberFormat proposal.netPrice}}</td>
+            </tr>
+            <tr>
+                <td><strong>Amount Financed</strong></td>
+                <td>${{numberFormat proposal.netPriceFinanced}}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Monthly Cost</strong></td>
+                <td>${{numberFormat proposal.netMonthlyRate}}</td>
+            </tr>
+            <tr>
+                <td><strong>Savings per month</strong></td>
+                <td>${{numberFormat proposal.savingsPerMonth}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        {{charts/barchart-savings proposal=proposal style="width: 100%; height: 400px;"}}
+    </div>
+</div>

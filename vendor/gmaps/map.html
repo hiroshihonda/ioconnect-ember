@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnyvWkbKyPtvdm03pu8GnrrmNTHoF5vDI&signed_in=true&libraries=places,drawing,geometry&callback=initMap">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onkeydown="keyboardShortcuts(event)" onkeyup="notSelecting()">
+
+	<div id="menu">
+
+		<div class="floating-panel-left">
+			<div style="padding-bottom: 15px">
+				<p style="margin-bottom: 2px">Panels</p>
+				<button class="half-button-left" onclick="removePanel()">&minus;</button>
+				<button class="half-button-right" onclick="addPanel()">&plus;</button>
+				<br>
+				<button onclick="removeAll()">Remove All</button>
+				<br>
+				<button onclick="selectAll()">Select All</button>
+			</div>
+
+			<div style="padding-bottom: 15px">
+				<p style="margin-bottom: 2px">Rotate</p>
+				<button class="half-button-left" onclick="rotatePanel(-1, false)">&#8630;</button>
+				<button class="half-button-right" onclick="rotatePanel(1, false)">&#8631;</button>
+				<br> <input id="rotate-angle" type="number" name="rotation"
+					min="0" max="359" placeholder="45">
+				<button class="arrow" onclick="userAngle()">&#10148;</button>
+			</div>
+
+			<div style="padding-bottom: 30px">
+				<p style="margin-bottom: 2px">Tilt</p>
+				<button class="half-button-left" onclick="tiltPanel(-1, false)">&minus;</button>
+				<button class="half-button-right" onclick="tiltPanel(1, false)">&plus;</button>
+				<br> <input id="rotate-angle" type="number" name="tilt" min="0"
+					max="90" placeholder="15">
+				<button class="arrow" onclick="tiltPanel(0, true)">&#10148;</button>
+				<button id = "automap" class="btn btn-success" onClick="auto_map_panel()" onmouseover = "popupbox(map)">AutoMap</button>
+			</div>
+
+			<div>
+				<p id="numPanels">Panels: 0</p>
+				<p id="azimuth">Azimuth: 0&deg;</p>
+				<p id="tilt">Tilt: 0&deg;</p>
+			</div>
+		</div>
+
+	</div>
+
+	<input id="pac-input" class="controls" type="text"
+		placeholder="Enter a location">
+
+	<div id="map"></div>
+	
+	<script src="googleMap.js"></script>
+</body>
+</html>

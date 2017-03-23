@@ -1,0 +1,16 @@
+{{#get-started-slider action="setSlide" nextSlide="solar-production" prevSlide="energy-efficiency" slideName="address"}}
+  {{!--view view.GoogleMap--}}
+  {{view view.NewGoogleMap}}
+  <div class="clearfix"></div>
+  <div class="panel panel-default">
+      <div class="panel-heading">Upload Panel Layout</div>
+      <div class="panel-body">
+        {{file-upload url="/api/files" model=proposal.panelLayoutFile}}
+          <br/>
+        {{#if proposal.panelLayoutFile.available}}
+            <img src="{{proposal.panelLayoutFileUrl}}" style="width: 100px"/>
+        {{/if}}
+
+      </div>
+  </div>
+{{/get-started-slider}}

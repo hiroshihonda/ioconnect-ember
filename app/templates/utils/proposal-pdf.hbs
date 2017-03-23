@@ -1,0 +1,10 @@
+<div id="presentation-info">
+    There are
+    <span id="presentation-slides">{{view.slider.slides.length}}</span> slides
+    <a id="goto-next-slide" {{action "nextSlide" target=view}}>Next</a>
+</div> <br />
+<div id="pdf-workspace" style="width: 1140px"></div>
+<div style="display: none">
+    {{presentation-slider proposal=proposal settings=settings}}
+</div>
+<div id="pdf-output"></div>

@@ -1,0 +1,164 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th class="col-md-3">Product</th>
+        <th>Federal</th>
+        <th>State</th>
+        <th>Utility</th>
+        <th>Tax</th>
+        <th>Rebates</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Solar</td>
+            <td>
+              {{input class="form-control input-sm" value=profile.solarItem.federal.value placeholder="Value"}}
+              {{view "select"
+              content=taxTypes
+              optionValuePath="content.name"
+              optionLabelPath="content.value"
+              value=profile.solarItem.federal.type
+              class="form-control input-sm"
+              }}
+              {{input class="form-control input-sm" value=profile.solarItem.federal.cap placeholder="Cap ($)"}}
+            </td>
+            <td>
+              {{input class="form-control input-sm" value=profile.solarItem.state.value placeholder="Value"}}
+              {{view "select"
+              content=taxTypes
+              optionValuePath="content.name"
+              optionLabelPath="content.value"
+              value=profile.solarItem.state.type
+              class="form-control input-sm"
+              }}
+              {{input class="form-control input-sm" value=profile.solarItem.state.cap placeholder="Cap ($)"}}
+            </td>
+            <td>
+              {{input class="form-control input-sm" value=profile.solarItem.utility.value placeholder="Value"}}
+              {{view "select"
+              content=taxTypes
+              optionValuePath="content.name"
+              optionLabelPath="content.value"
+              value=profile.solarItem.utility.type
+              class="form-control input-sm"
+              }}
+              {{input class="form-control input-sm" value=profile.solarItem.utility.cap placeholder="Cap ($)"}}
+            </td>
+            <td>
+              {{input class="form-control input-sm" value=profile.solarItem.tax.value placeholder="Value"}}
+              {{view "select"
+              content=taxTypes
+              optionValuePath="content.name"
+              optionLabelPath="content.value"
+              value=profile.solarItem.tax.type
+              class="form-control input-sm"
+              }}
+              {{input class="form-control input-sm" value=profile.solarItem.tax.cap placeholder="Cap ($)"}}
+            </td>
+            <td>
+              {{input class="form-control input-sm" value=profile.solarItem.rebates.value placeholder="Value"}}
+              {{view "select"
+              content=taxTypes
+              optionValuePath="content.name"
+              optionLabelPath="content.value"
+              value=profile.solarItem.rebates.type
+              class="form-control input-sm"
+              }}
+              {{input class="form-control input-sm" value=profile.solarItem.rebates.cap placeholder="Cap ($)"}}
+            </td>
+            <td>
+            </td>
+        </tr>
+    {{#each it in profile.items}}
+        <tr>
+          {{#if it.id}}
+              <td>{{it.product.name}}</td>
+              <td>{{numberFormat it.federal.value}}{{it.federal.typeValue}}{{#if it.federal.cap}}, Cap: ${{numberFormat it.federal.cap}}{{/if}}</td>
+              <td>{{numberFormat it.state.value}}{{it.state.typeValue}}{{#if it.state.cap}}, Cap: ${{numberFormat it.state.cap}}{{/if}}</td>
+              <td>{{numberFormat it.utility.value}}{{it.utility.typeValue}}{{#if it.utility.cap}}, Cap: ${{numberFormat it.utility.cap}}{{/if}}</td>
+              <td>{{numberFormat it.tax.value}}{{it.tax.typeValue}}{{#if it.tax.cap}}, Cap: ${{numberFormat it.tax.cap}}{{/if}}</td>
+              <td>{{numberFormat it.rebates.value}}{{it.rebates.typeValue}}{{#if it.rebates.cap}}, Cap: ${{numberFormat it.rebates.cap}}{{/if}}</td>
+              <td>
+                  <button type="button"
+                          {{action 'deleteSavedItem' profile it}}class="btn btn-danger btn-sm">Delete
+                  </button>
+              </td>
+          {{else}}
+              <td>
+                {{view "select"
+                content=products
+                optionLabelPath="content.name"
+                value=it.product
+                class="form-control input-sm"
+                }}</td>
+              <td>
+                {{input class="form-control input-sm" value=it.federal.value placeholder="Value"}}
+                {{view "select"
+                content=taxTypes
+                optionValuePath="content.name"
+                optionLabelPath="content.value"
+                value=it.federal.type
+                class="form-control input-sm"
+                }}
+                {{input class="form-control input-sm" value=it.federal.cap placeholder="Cap ($)"}}
+              </td>
+              <td>
+                {{input class="form-control input-sm" value=it.state.value placeholder="Value"}}
+                {{view "select"
+                content=taxTypes
+                optionValuePath="content.name"
+                optionLabelPath="content.value"
+                value=it.state.type
+                class="form-control input-sm"
+                }}
+                {{input class="form-control input-sm" value=it.state.cap placeholder="Cap ($)"}}
+              </td>
+              <td>
+                {{input class="form-control input-sm" value=it.utility.value placeholder="Value"}}
+                {{view "select"
+                content=taxTypes
+                optionValuePath="content.name"
+                optionLabelPath="content.value"
+                value=it.utility.type
+                class="form-control input-sm"
+                }}
+                {{input class="form-control input-sm" value=it.utility.cap placeholder="Cap ($)"}}
+              </td>
+              <td>
+                {{input class="form-control input-sm" value=it.tax.value placeholder="Value"}}
+                {{view "select"
+                content=taxTypes
+                optionValuePath="content.name"
+                optionLabelPath="content.value"
+                value=it.tax.type
+                class="form-control input-sm"
+                }}
+                {{input class="form-control input-sm" value=it.tax.cap placeholder="Cap ($)"}}
+              </td>
+              <td>
+                {{input class="form-control input-sm" value=it.rebates.value placeholder="Value"}}
+                {{view "select"
+                content=taxTypes
+                optionValuePath="content.name"
+                optionLabelPath="content.value"
+                value=it.rebates.type
+                class="form-control input-sm"
+                }}
+                {{input class="form-control input-sm" value=it.rebates.cap placeholder="Cap ($)"}}
+              </td>
+              <td>
+                  <button class="btn btn-default btn-sm" {{action "cancelAddItem" it}}>Cancel
+                  </button>
+              </td>
+          {{/if}}
+
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+<div class="col-md-6 pull-right">
+    <button class="btn btn-primary pull-right" {{action 'addItem'}}>Add Item</button>
+</div>
+<div class="clearfix"></div>

@@ -1,0 +1,25 @@
+{{#get-started-slider nextSlide="utility-data" action="setSlide" slideName="lookup"}}
+
+
+    <div class="step-container">
+
+      {{#widget-collspandable title="Select a market profile"}}
+        {{view "select"
+        content=marketProfiles
+		optionValuePath="content.id"
+        optionLabelPath="content.name"
+        selection=selectedMarketProfile
+        prompt="Please select a market profile"
+        class="form-control"}}
+      {{/widget-collspandable}}
+    </div>
+
+    <div class="step-container" id="potential-wrapper">
+      {{#widget-collspandable title="Customer" widget-id="potential-widget"}}
+        {{ proposal/view-table update="savePotentialToApi" model=model setOptions=setOptions}}
+      {{/widget-collspandable}}
+    </div>
+
+    {{outlet}}
+
+{{/get-started-slider}}

@@ -1,0 +1,20 @@
+<div class="col-sm-12">
+<a class="btn btn-default pull-right" {{action 'refreshPotentials'}}>
+    <i class="glyphicon glyphicon-refresh"></i>
+    Refresh
+</a>
+<a class="btn btn-default pull-right" data-toggle="modal" data-target="#createPotentialModal">
+    <i class="glyphicon glyphicon-plus-sign"/>
+    New Quote
+</a>
+<a class="btn btn-default pull-right" {{action 'deletePotentials'}}>
+		<i class="fa fa-fw fa-user-times"></i>
+		Delete
+</a>
+</div>
+<div class="step-container" id="customer-lookup">
+	
+  {{ view "proposal/list" }}
+</div>
+
+{{create-potential}}

@@ -1,0 +1,9 @@
+  {{#if hasPrevSlide}}
+      <a class="btn btn-primary" {{action 'setSlide' 'prev'}}>Previous</a>
+  {{/if}}
+  {{#if hasNextSlide}}
+      <a class="btn btn-danger" {{action 'setSlide' 'next'}}>Next</a>
+  {{else}}
+      <a class="btn btn-success" {{action 'finishCreatePotential'}}>Finish</a>
+  {{/if}}
+    <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>

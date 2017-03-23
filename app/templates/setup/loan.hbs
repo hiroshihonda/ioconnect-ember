@@ -1,0 +1,52 @@
+<div class="page-header">
+    <h1>Loan Options</h1>
+</div>
+
+<h4>Create a new Loan Option</h4>
+<div class="well col-md-6">
+  {{render 'setup.partials.loan-form' newLoan}}
+    <div class="form-group">
+      {{promise-button promise=newLoanPromise label="Create" action="createNewLoan"}}
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<h4>Existing Loan Options</h4>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Interest Rate</th>
+        <th>Term</th>
+        <th>Federal</th>
+        <th>State</th>
+        <th>Utility</th>
+        <th>Rebate</th>
+        <th>1st Year Savings</th>
+        <th>Interest Capitalization</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each loan in model}}
+        <tr>
+            <td>{{loan.name}}</td>
+            <td>{{loan.interestRate}}%</td>
+            <td>{{loan.term}} months</td>
+            <td>{{if loan.federal 'Yes' 'No'}}</td>
+            <td>{{if loan.state 'Yes' 'No'}}</td>
+            <td>{{if loan.utility 'Yes' 'No'}}</td>
+            <td>{{if loan.rebate 'Yes' 'No'}}</td>
+            <td>{{if loan.firstYearSavings 'Yes' 'No'}}</td>
+            <td>{{if loan.interestCapitalization 'Yes' 'No'}}</td>
+            <td>
+              {{render 'setup.partials.loan-edit-modal' loan}}
+                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#loan{{loan.id}}"><i
+                        class="glyphicon glyphicon-edit"></i></button>
+                <button class="btn btn-danger btn-sm" {{action 'deleteLoan' loan}}><i
+                        class="glyphicon glyphicon-remove-sign"></i></button>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

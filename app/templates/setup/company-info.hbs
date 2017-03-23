@@ -1,0 +1,49 @@
+<div class="page-header"><h1>Company Info</h1></div>
+
+<div class="col-md-6">
+    <div class="form-group">
+        <label>Company Name</label>
+      {{input class="form-control" value=settings.companyName.value}}
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+      {{input class="form-control" value=settings.companyAddress.value}}
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+      {{input class="form-control" value=settings.companyPhone.value}}
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+      {{input class="form-control" value=settings.companyEmail.value}}
+    </div>
+    <div class="form-group">
+        <label>License</label>
+      {{input class="form-control" value=settings.companyLicense.value}}
+    </div>
+    <div class="form-group">
+        <label>Gross Profit Margin (%)</label>
+      {{input class="form-control" value=settings.companyGrossProfitMargin.value}}
+    </div>
+    <div class="form-group">
+        <label>Attach PDF</label>
+      {{file-upload url="/api/files" name=fileNames.pdf}}
+    </div>
+    <div class="form-group">
+        <label>Upload Logo</label>
+      {{file-upload url="/api/files" name=fileNames.logo}}
+    </div>
+
+    <hr/>
+
+    <div class="form-group">
+        <label>ZOHO CRM Api Auth Token</label>
+      {{input class="form-control" value=settings.zohoAuthToken.value}}
+    </div>
+
+  {{promise-button label="Save" action="saveSettings" promise=saveSettingsPromise}}
+</div>
+<div class="col-md-6">
+  {{set-option setOption=setOptions.leadSource}}
+  {{set-option setOption=setOptions.leadStatus}}
+</div>

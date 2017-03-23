@@ -1,0 +1,19 @@
+<h1>
+    <center>New Energy Mix</center>
+</h1>
+<div class="row">
+    <div class="energy-mix-chart">
+      {{proposal/pie-chart proposal=proposal canvasWidth=800 mainLabelSize=16 percentageSize=14 canvasHeight=800 pieCenterY=-100}}
+    </div>
+</div>
+<div class="row" style="margin-top: -200px">
+    <div class="energy-mix-items">
+      {{#each item in proposal.selectedItems}}
+          <div class="col-md-2 energy-mix-item"
+               style="background-color: {{item.rgbColorCss}}">{{item.marketItem.product.name}}</div>
+      {{/each}}
+        <div class="col-md-2 energy-mix-item" style="background-color: {{solarProductionColor}}">Solar Production</div>
+        <div class="col-md-2 energy-mix-item" style="background-color: {{usageAfterColor}}">Usage After Efficiency</div>
+    </div>
+
+</div>

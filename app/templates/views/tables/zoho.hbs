@@ -1,0 +1,30 @@
+<table id="zoho-table" class="table table-striped table-bordered table-hover" width="100%">
+    <thead>
+    <tr>
+        <th >
+            <i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>
+            Potential Name
+        </th>
+        <th data-hide="phone">
+            Probability
+        </th>
+        <th>Contract Amount</th>
+        <th data-hide="phone,tablet">
+            <i class="fa fa-fw txt-color-blue hidden-md hidden-sm hidden-xs"></i>
+            Contract
+        </th>
+        <th data-hide="phone,tablet">Closing Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each potential in potentials}}
+        <tr>
+            <td>{{#link-to 'proposal.view' potential.id}}{{potential.potentialName}}{{/link-to}}</td>
+            <td>{{potential.probability}}%</td>
+            <td>{{potential.contractAmount}}</td>
+            <td>{{potential.contract}}</td>
+            <td>{{potential.closingDate}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

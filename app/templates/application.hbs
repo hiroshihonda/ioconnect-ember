@@ -1,0 +1,46 @@
+{{ view "layouts/header" }}
+
+{{ view "layouts/navbar" }}
+
+<div class="content">
+     {{outlet}}
+</div>    
+
+<!--div class="application-wrapper"-->
+	
+  <!--button type="button" class="application-navbar-toggle navbar-toggle" data-toggle="collapse" data-target="#app-nav"
+          aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+  </button-->
+
+  <!--div class="application-navbar">
+    {{ view "layouts/navbar" }}
+  </div>
+
+  <div class="content">
+    {{outlet}}
+  </div-->
+
+  <!--<div class="container">-->
+      <!--<footer class="footer">-->
+          <!--<p>© Suntrific Group 2015</p>-->
+      <!--</footer>-->
+  <!--</div>-->
+	
+<!--/div-->
+
+<script>
+  $(document).ready( function () {
+    $('#app-nav').on('show.bs.collapse', function() {
+        $(".application-navbar").css("z-index", "4400");
+    });    
+    $('#app-nav').on('hide.bs.collapse', function() {
+        $(".application-navbar").css("z-index", "0");
+    });    
+  })
+
+</script>
+

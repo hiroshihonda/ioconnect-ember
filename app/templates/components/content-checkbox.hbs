@@ -1,0 +1,6 @@
+<label for="showContent">{{ label }}</label>
+{{input type="checkbox" name="showContent" checked=checked-content}}
+
+<div id="{{ content-id }}" style="display:none;">
+  {{yield}}
+</div>

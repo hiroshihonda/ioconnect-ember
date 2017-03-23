@@ -1,0 +1,65 @@
+{{#get-started-slider action="setSlide" nextSlide="energy-efficiency" prevSlide="lookup" slideName="utility-data"}}
+
+  {{#widget-collspandable title="Calculate Savings Based on:"}}
+      <div class="form-group">
+        {{#radio-button
+        value="average"
+        groupValue=proposal.savingsCalculationType
+        }}
+            Average Cost of Electricity
+        {{/radio-button}}
+      </div>
+
+      <div class="form-group">
+        {{#radio-button
+        value="avoided"
+        groupValue=proposal.savingsCalculationType
+        }}
+            Avoided Cost of Energy
+        {{/radio-button}}
+          <br class="clearfix"/>
+        {{#if (eq proposal.savingsCalculationType "avoided")}}
+
+          {{#each proposal.tiers as |tier idx|}}
+              <div class="form-inline">
+                  <div class="form-group">
+                      <label>Tier {{plus idx 1}}</label>
+
+                      <div class="input-group">
+                        {{input class="form-control" value=tier.percentage}}
+                          <div class="input-group-addon">%</div>
+                      </div>
+
+                      <div class="input-group">
+                        {{input class="form-control" value=tier.kwhPrice}}
+                          <div class="input-group-addon">$/kWh</div>
+                      </div>
+
+                      <button class="btn btn-danger" {{action 'removeTier' tier}}>
+                          <i class="glyphicon glyphicon-remove-sign"></i>
+                          Remove
+                      </button>
+                  </div>
+              </div>
+              <br class="clearfix"/>
+          {{/each}}
+            <br class="clearfix"/>
+            <button class="btn btn-success {{if (gte proposal.tiers.length 5) "disabled" ""}}" {{action 'addTier'}}>
+                <i class="glyphicon glyphicon-plus-sign"></i>
+                Add Tier
+            </button>
+          {{#unless (eq proposal.tiersTotalPercentage 100)}}
+              <span class="text-danger">
+               Tiers' total percentage is {{proposal.tiersTotalPercentage}}%, but it must be 100%.
+              </span>
+          {{/unless}}
+        <br />
+        {{/if}}
+      </div>
+  {{/widget-collspandable}}
+
+  {{#widget-collspandable title="Utility data" collapsed=false}}
+    {{proposal/utility-widget potential=model}}
+  {{/widget-collspandable}}
+
+{{/get-started-slider}}

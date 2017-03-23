@@ -1,0 +1,24 @@
+<div class="col-md-1 wizard-slider-chevron">
+  {{#if prevSlide}}
+      <h1 {{action "setSlide" prevSlide}}
+              class="slider-arrow pull-left glyphicon glyphicon-chevron-left"></h1>
+  {{/if}}
+</div>
+
+<div class="col-md-5">
+    <center>
+        <h3>
+            {{currentSlideNumber}} / {{slidesCount}}
+            {{currentSlideLabel}}
+        </h3>
+    </center>
+</div>
+
+<div class="col-md-1 wizard-slider-chevron">
+  {{#if nextSlide}}
+      <h1 {{action "setSlide" nextSlide}}
+              class="slider-arrow pull-right glyphicon glyphicon-chevron-right"></h1>
+  {{/if}}
+</div>
+
+<div class="clearfix"></div>

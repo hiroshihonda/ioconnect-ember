@@ -1,0 +1,12 @@
+<br />
+
+<div class="col-md-12">
+  {{#widget-collspandable title="Potentials - select a potential to view it's proposals" widget-id="action-buttons-widget"}}
+    {{ potential/list-potentials potentials=potentials accepted='true' viewroute='done-deals.view-potential' }}
+  {{/widget-collspandable}}
+
+  {{outlet "proposal"}}
+</div>
+
+
+
